@@ -1,6 +1,13 @@
 part of 'arguments.dart';
 
-sealed class AuthType with _Argument {}
+enum AuthTypeEnum {
+  normal,
+  qrCode,
+  phoneLogin;
+}
+
+abstract class AuthType with _Argument {
+}
 
 /// The WeChat-Login is under Auth-2.0
 /// This method login with native WeChat app.

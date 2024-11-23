@@ -53,7 +53,7 @@ Map<String, _WeChatResponseInvoker> _nameAndResponseMapper = {
       WeChatLaunchFromWXRequest.fromMap(argument),
 };
 
-sealed class WeChatResponse {
+class WeChatResponse {
   WeChatResponse._(this.errCode, this.errStr);
 
   /// Create response from the response pool.
@@ -70,8 +70,8 @@ sealed class WeChatResponse {
 
   bool get isSuccessful => errCode == 0;
 
-  Record toRecord() {
-    return ();
+  Map<dynamic, dynamic> toRecord() {
+    return {};
   }
 }
 
@@ -83,8 +83,8 @@ class WeChatOpenInvoiceResponse extends WeChatResponse {
         super._(map[_errCode], map[_errStr]);
 
   @override
-  Record toRecord() {
-    return (errCode: errCode, errStr: errStr, cardItemList: cardItemList);
+  Map<dynamic, dynamic> toRecord() {
+    return {'errCode': errCode, 'errStr': errStr, 'cardItemList': cardItemList};
   }
 }
 
@@ -96,8 +96,8 @@ class WeChatShareResponse extends WeChatResponse {
   final int type;
 
   @override
-  Record toRecord() {
-    return (errCode: errCode, errStr: errStr, type: type);
+  Map<dynamic, dynamic> toRecord() {
+    return {'errCode': errCode, 'errStr': errStr, 'type': type};
   }
 }
 
@@ -117,16 +117,16 @@ class WeChatAuthResponse extends WeChatResponse {
   final String? state;
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      type: type,
-      country: country,
-      lang: lang,
-      code: code,
-      state: state
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'type': type,
+      'country': country,
+      'lang': lang,
+      'code': code,
+      'state': state
+    };
   }
 }
 
@@ -140,8 +140,8 @@ class WeChatLaunchMiniProgramResponse extends WeChatResponse {
   final String? extMsg;
 
   @override
-  Record toRecord() {
-    return (errCode: errCode, errStr: errStr, type: type, extMsg: extMsg);
+  Map<dynamic, dynamic> toRecord() {
+    return {'errCode': errCode, 'errStr': errStr, 'type': type, 'extMsg': extMsg};
   }
 }
 
@@ -155,8 +155,8 @@ class WeChatPaymentResponse extends WeChatResponse {
   final String? extData;
 
   @override
-  Record toRecord() {
-    return (errCode: errCode, errStr: errStr, type: type, extData: extData);
+  Map<dynamic, dynamic> toRecord() {
+    return {'errCode': errCode, 'errStr': errStr, 'type': type, 'extData': extData};
   }
 }
 
@@ -168,8 +168,8 @@ class WeChatOpenCustomerServiceChatResponse extends WeChatResponse {
   final String? extMsg;
 
   @override
-  Record toRecord() {
-    return (errCode: errCode, errStr: errStr, extMsg: extMsg);
+  Map<dynamic, dynamic> toRecord() {
+    return {'errCode': errCode, 'errStr': errStr, 'extMsg': extMsg};
   }
 }
 
@@ -187,15 +187,15 @@ class WeChatOpenBusinessViewResponse extends WeChatResponse {
         super._(map[_errCode], map[_errStr]);
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      type: type,
-      extMsg: extMsg,
-      openid: openid,
-      businessType: businessType
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'type': type,
+      'extMsg': extMsg,
+      'openid': openid,
+      'businessType': businessType
+    };
   }
 }
 
@@ -215,16 +215,16 @@ class WeChatSubscribeMsgResponse extends WeChatResponse {
   final int scene;
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      openid: openid,
-      templateId: templateId,
-      action: action,
-      reserved: reserved,
-      scene: scene
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'openid': openid,
+      'templateId': templateId,
+      'action': action,
+      'reserved': reserved,
+      'scene': scene
+    };
   }
 }
 
@@ -240,14 +240,14 @@ class WeChatOpenBusinessWebviewResponse extends WeChatResponse {
   final String resultInfo;
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      type: type,
-      businessType: businessType,
-      resultInfo: resultInfo
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'type': type,
+      'businessType': businessType,
+      'resultInfo': resultInfo
+    };
   }
 }
 
@@ -262,13 +262,13 @@ class WeChatAuthByQRCodeFinishedResponse extends WeChatResponse {
   final AuthByQRCodeErrorCode? qrCodeErrorCode;
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      authCode: authCode,
-      qrCodeErrorCode: qrCodeErrorCode,
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'authCode': authCode,
+      'qrCodeErrorCode': qrCodeErrorCode,
+    };
   }
 }
 
@@ -281,8 +281,8 @@ class WeChatAuthGotQRCodeResponse extends WeChatResponse {
   final Uint8List? qrCode;
 
   @override
-  Record toRecord() {
-    return (qrCode: qrCode);
+  Map<dynamic, dynamic> toRecord() {
+    return {'qrCode': qrCode};
   }
 }
 
@@ -291,8 +291,8 @@ class WeChatQRCodeScannedResponse extends WeChatResponse {
       : super._(map[_errCode], map[_errStr]);
 
   @override
-  Record toRecord() {
-    return (errCode: errCode, errStr: errStr);
+  Map<dynamic, dynamic> toRecord() {
+    return {'errCode': errCode, 'errStr': errStr};
   }
 }
 
@@ -314,16 +314,16 @@ class WeChatShowMessageFromWXRequest extends WeChatResponse {
   final String? extMsg;
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      country: country,
-      lang: lang,
-      messageAction: messageAction,
-      description: description,
-      extMsg: extMsg,
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'country': country,
+      'lang': lang,
+      'messageAction': messageAction,
+      'description': description,
+      'extMsg': extMsg,
+    };
   }
 }
 
@@ -342,15 +342,15 @@ class WeChatLaunchFromWXRequest extends WeChatResponse {
   final String? extMsg;
 
   @override
-  Record toRecord() {
-    return (
-      errCode: errCode,
-      errStr: errStr,
-      country: country,
-      lang: lang,
-      messageAction: messageAction,
-      extMsg: extMsg,
-    );
+  Map<dynamic, dynamic> toRecord() {
+    return {
+      'errCode': errCode,
+      'errStr': errStr,
+      'country': country,
+      'lang': lang,
+      'messageAction': messageAction,
+      'extMsg': extMsg,
+    };
   }
 }
 

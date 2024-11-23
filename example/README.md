@@ -1,6 +1,6 @@
-# fluwx_example
+# push_example
 
-Demonstrates how to use the fluwx plugin.
+Demonstrates how to use the push plugin.
 
 ## Getting Started
 

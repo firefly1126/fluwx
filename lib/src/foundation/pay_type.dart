@@ -1,6 +1,12 @@
 part of 'arguments.dart';
 
-sealed class PayType with _Argument {}
+enum PayTypeEnum {
+  payment,
+  hongKongWallet;
+}
+
+abstract class PayType with _Argument {
+}
 
 /// request payment with WeChat.
 /// Read the official document for more detail.

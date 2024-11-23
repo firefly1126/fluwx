@@ -1,6 +1,18 @@
 part of 'arguments.dart';
 
-sealed class OpenType with _Argument {}
+enum OpenTypeEnum {
+  weChat,
+  browser,
+  rankList,
+  businessView,
+  invoice,
+  customerServiceChat,
+  miniProgram,
+  subscribeMessage;
+}
+
+abstract class OpenType with _Argument {
+}
 
 /// Just open WeChat app.
 class WeChatApp extends OpenType {}

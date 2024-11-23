@@ -5,14 +5,15 @@ description: Demonstrates how to use the fluwx plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=2.19.6 <3.0.0'
+  flutter: ">=2.5.0"
 
 fluwx:
-  app_id: '123456'
+  app_id: 'wxd930ea5d5a258f4f'
   debug_logging: true # Logging in debug mode.
   android:
-#    interrupt_wx_request: true # Defaults to true.
-#    flutter_activity: 'MainActivity' # Defaults to app's launcher
+    interrupt_wx_request: true # Defaults to true.
+    flutter_activity: 'MainActivity' # Defaults to app's launcher
   ios:
     universal_link: https://testdomain.com
 #    scene_delegate: true # Defaults to false.
@@ -53,7 +54,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  http: ^1.2.2
+  http: 0.13.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -30,7 +30,25 @@ const String _msgSignature = "msgSignature";
 const String _thumbData = "thumbData";
 const String _thumbDataHash = "thumbDataHash";
 
-sealed class WeChatShareModel with _Argument {
+enum WeChatShareModelEnum {
+  text,
+  miniProgram,
+  image,
+  music,
+  video,
+  webPage,
+  file;
+}
+
+abstract class WeChatShareModel with _Argument {
+  static const text = 'text';
+  static const miniProgram = 'miniProgram';
+  static const image = 'image';
+  static const music = 'music';
+  static const video = 'Video';
+  static const webPage = 'webPage';
+  static const file = 'file';
+
   final String? title;
   final String? description;
   final Uint8List? thumbData;

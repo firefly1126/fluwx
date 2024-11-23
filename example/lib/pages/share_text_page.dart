@@ -36,7 +36,7 @@ class _ShareTextPageState extends State<ShareTextPage> {
         title: const Text('ShareText'),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.share, color: Colors.white),
+            icon: const Icon(Icons.share, color: Colors.blue),
             onPressed: (){
               _shareText();
             },
