@@ -1,3 +1,15 @@
+# 5.4.2
+* 更新一下API文档
+
+# 5.4.1
+* Android替换过时方法toLowerCase()为lowercase()
+
+# 5.4.0
+* 增加鸿蒙分享网页和小程序，微信sdk升级1.0.6
+
+# 5.3.1
+* JVM target降低至11
+
 # 5.3.0
 * 升级kotlin、gradle相关
 * 更新progurad规则(#672)
